@@ -1,3 +1,4 @@
+[<img src="https://david-dm.org/asotog/fullstack-javascript-boilerplate.svg">](https://david-dm.org/asotog/fullstack-javascript-boilerplate)
 
 ##### Requirements
 - node version 6.9.2 or latest
@@ -18,7 +19,7 @@ Development and production scripts :
 - `npm run start:prod"`: Starts production mode server; it runs on port 8080, and it first generates the bundled client files into `build` folder
 - `npm run build`: No server, this just bundles client files into `build` folder
     
-###### Author
+##### Author
 alejandro soto
 
 ### Feel free to modify, send PR or use this...
