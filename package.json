@@ -1,0 +1,49 @@
+{
+  "name": "fullstack-js-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:client": "webpack-dev-server --port 3001 --host 0.0.0.0;",
+    "start:server": "nodemon --watch server server/server",
+    "start:all": "npm-run-all --parallel start:client start:server",
+    "build": "rimraf build && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
+    "start:prod": "npm run build && cross-env NODE_ENV=production PORT=8080 node server/server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "cross-env": "^5.0.1",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.3",
+    "hbs": "^4.0.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.2",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2",
+    "postcss-loader": "^2.0.6",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.6",
+    "strip-loader": "^0.1.2",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.0.0",
+    "webpack-dev-middleware": "^1.11.0",
+    "webpack-dev-server": "^2.5.0",
+    "webpack-hot-middleware": "^2.18.0"
+  }
+}
