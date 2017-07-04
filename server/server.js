@@ -10,6 +10,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const IndexRouter = require('./routes/index.js');
 const ApiRouter = require('./routes/api.js');
 const Auth = require('./auth.js');
+const Logger = require('./utils/logger.js');
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 3000 : process.env.PORT;
@@ -38,7 +39,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 if (!isDeveloping) {
+    Logger.info('initializing server in production mode');
     app.use('/build', express.static('build')); // on production mode, serve the generated build folder
+} else {
+    Logger.info('initializing server in development mode');
 }
 
 app.use('/', IndexRouter);

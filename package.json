@@ -2,7 +2,10 @@
   "name": "fullstack-js-app",
   "version": "1.0.0",
   "description": "",
+  "repository": "https://github.com/asotog/fullstack-javascript-boilerplate.git",
   "main": "index.js",
+  "license": "MIT",
+  "author": "alejandro soto",
   "scripts": {
     "start:client": "webpack-dev-server --port 3001 --host 0.0.0.0;",
     "start:server": "nodemon --watch server server/server",
@@ -10,8 +13,6 @@
     "build": "rimraf build && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
     "start:prod": "npm run build && cross-env NODE_ENV=production PORT=8080 node server/server"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
@@ -21,7 +22,8 @@
     "express-session": "^1.15.3",
     "hbs": "^4.0.1",
     "passport": "^0.3.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "winston": "^2.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",

@@ -1,4 +1,5 @@
 const UserService = require('./services/user');
+const Logger = require('./utils/logger.js');
 
 module.exports = {
 
@@ -17,6 +18,7 @@ module.exports = {
                     message: 'Incorrect password.'
                 });
             }
+            Logger.info(`${username} authenticated succesfully`);
             return done(null, user);
         });
     },
