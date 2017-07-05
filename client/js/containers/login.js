@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Services from '../utils/services';
+import {strings} from '../utils/strings';
 import * as FormFields from '../components/form-fields';
 import * as Validations from '../utils/form-validations';
 import * as userActionCreators from '../actions/user-actions';
@@ -23,14 +24,14 @@ class LoginForm extends Component {
                     placeholder=""
                     component={FormFields.renderTextField}
                     className="required" 
-                    label="field-lbl-username" validate={[Validations.required]}/>
+                    label={strings.fieldLabelUsername} validate={[Validations.required]}/>
                 <Field name="password"
                     placeholder=""
                     component={FormFields.renderPasswordField}
                     className="required" 
-                    label="field-lbl-password" validate={[Validations.required]}/>
+                    label={strings.fieldLabelPassword} validate={[Validations.required]}/>
                 <div className="text-center">
-                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary">{strings.buttonLabelLogin}</button>
                 </div>
             </form>
         );

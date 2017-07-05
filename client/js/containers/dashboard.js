@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import {strings} from '../utils/strings';
 import * as userActionCreators from '../actions/user-actions';
 import Services from '../utils/services';
 
@@ -22,7 +23,7 @@ class Dashboard extends Component {
             <div className="dashboard">
                 {user.attributes.username}
                 <h1>Dashboard</h1>
-                <button onClick={_ => logout()}>logout</button>
+                <button onClick={_ => logout()}>{strings.buttonLabelLogout}</button>
             </div>
         );
     }
