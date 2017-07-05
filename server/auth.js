@@ -35,6 +35,18 @@ module.exports = {
     },
 
     /**
+     * Route Middleware that can be applied to any route that requires user authentication
+     */
+    routeAuthMiddlewareWithLog: function (req, res, next) {
+        if (!req.isAuthenticated()) {
+            Logger.error(`unauthenticated request to ${req.originalUrl}`);
+            res.sendStatus(401);
+        } else {
+            next();
+        }
+    },
+
+    /**
      * User serialization for passportjs
      */
     serializeUser: function (user, done) {
