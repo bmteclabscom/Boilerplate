@@ -32,7 +32,7 @@ export default {
      * @param {String} password 
      */
     login(username, password) {
-        return fetch('/api/login', {
+        return fetch('/api/user/login', {
             credentials: 'include',
             method: 'POST',
             headers: {
@@ -48,7 +48,7 @@ export default {
      * 
      */
     logout() {
-        return fetch('/api/logout', {
+        return fetch('/api/user/logout', {
             credentials: 'include',
             method: 'POST'
         });
@@ -58,13 +58,13 @@ export default {
      * Verifies if there is an active user session in the browser
      */
     isAuthenticated() {
-        return fetch('/api/check-login', GET_OPTIONS)
+        return fetch('/api/user/check-login', GET_OPTIONS)
             .then(handleResponse)
             .catch(error => Promise.reject(error));
     },
 
     getTodos() {
-        return fetch('/api/todos', GET_OPTIONS)
+        return fetch('/api/todos/list', GET_OPTIONS)
             .then(handleResponse)
             .catch(error => Promise.reject(error));
     }
