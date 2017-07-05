@@ -1,3 +1,12 @@
 .dashboard {
     padding: 20px 0;
 }
+
+.dashboard .page-header {
+    &, h1 {
+        margin-top: 0;
+    }
+    small {
+        font-size: 16px;
+    }
+}

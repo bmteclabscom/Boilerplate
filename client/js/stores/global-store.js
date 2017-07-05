@@ -5,7 +5,8 @@ import { reducer as reduxFormReducer } from 'redux-form';
 // import the root reducer
 import thunkMiddleware from 'redux-thunk';
 import userReducer from '../reducers/user-reducer';
- 
+import todosReducer from '../reducers/todos-reducer';
+
 /**
  * Global store
  * 
@@ -25,6 +26,11 @@ export const defaultState = {
         isCheckingAuthentication: false, // true if is checking user authentication
         loginError: false,
         logoutError: false
+    },
+    todos: {
+        list: [],
+        isRequestingTodos: false,
+        todosRequestError: false
     }
 };
 
@@ -42,6 +48,7 @@ if (process.env.NODE_ENV !== 'production') {
 // store creation
 const store = createStore(combineReducers({
     user: userReducer,
+    todos: todosReducer,
     routing: routerReducer,
     form: reduxFormReducer
 }), defaultState, enhancers);

@@ -82,13 +82,13 @@ class Login extends Component {
     }
 }
 
-function mapStateToProps(state) { // maps redux state to MyProfile component props
+function mapStateToProps(state) { // maps redux state to component props
     return {
         ...state
     }
 }
 
-function mapDispatchToProps(dispatch) { // maps redux actions to MyProfile component props
+function mapDispatchToProps(dispatch) { // maps redux actions to component props
      return bindActionCreators(userActionCreators, dispatch);
 }
 

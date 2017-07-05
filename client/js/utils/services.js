@@ -61,6 +61,12 @@ export default {
         return fetch('/api/check-login', GET_OPTIONS)
             .then(handleResponse)
             .catch(error => Promise.reject(error));
+    },
+
+    getTodos() {
+        return fetch('/api/todos', GET_OPTIONS)
+            .then(handleResponse)
+            .catch(error => Promise.reject(error));
     }
 }
 

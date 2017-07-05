@@ -16,7 +16,7 @@ function user(state = {}, action) {
             return { 
                 ...state,
                 isRequestingLogin: true,
-                loginError: false
+                loginError: null
             };
         case Actions.RECEIVE_LOGIN:
             return { 
@@ -30,7 +30,7 @@ function user(state = {}, action) {
             return { 
                 ...state,
                 isRequestingLogin: false,
-                loginError: true
+                loginError: action.error
             };
         /**
          * Logout Actions
@@ -39,7 +39,7 @@ function user(state = {}, action) {
             return { 
                 ...state,
                 isRequestingLogout: true,
-                logoutError: false
+                logoutError: null
             };
         case Actions.RECEIVE_LOGOUT:
             return { 
@@ -54,7 +54,7 @@ function user(state = {}, action) {
                 ...state,
                 isRequestingLogin: false,
                 isCheckingAuthentication: false,
-                logoutError: true
+                logoutError: action.error
             };
         /**
          * Request if there is a current authenticated user
