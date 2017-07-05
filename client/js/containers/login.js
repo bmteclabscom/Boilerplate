@@ -12,12 +12,12 @@ class LoginForm extends Component {
 
     static get defaultProps() {
         return {
-            submitting: false // flag to detect whether or not data is being sent
+            requesting: false // flag to detect whether or not data is being sent
         }
     }
 
     render() {
-        const {handleSubmit, onSubmit, submitting} = this.props;
+        const {handleSubmit, onSubmit, requesting} = this.props;
         return (
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Field name="username"
@@ -31,7 +31,7 @@ class LoginForm extends Component {
                     className="required" 
                     label={strings.fieldLabelPassword} validate={[Validations.required]}/>
                 <div className="text-center">
-                    <button type="submit" className="btn btn-primary">{strings.buttonLabelLogin}</button>
+                    <button disabled={requesting} type="submit" className="btn btn-primary">{strings.buttonLabelLogin}</button>
                 </div>
             </form>
         );
@@ -64,12 +64,16 @@ class Login extends Component {
     }
 
     render() {
+        const {user} = this.props;
         return (
             <div className="login login-centered">
                 <div className="container-fluid">
                     <div className="row-fluid">
                         <div className="col-md-12">
-                            <LoginForm onSubmit={this.onSubmit.bind(this)}/>
+                            <LoginForm onSubmit={this.onSubmit.bind(this)} requesting={user.isRequestingLogin}/>
+                            <div className="text-center">
+                                <span hidden={!user.loginError} className="form-group-error">{strings.validationLogin}</span>
+                            </div>
                         </div>
                     </div>
                 </div>

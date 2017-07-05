@@ -9,8 +9,8 @@ export const strings = new LocalizedStrings({
         buttonLabelLogout: 'Logout',
 
         validationRequired: 'Required',
-        validationEmail: 'Invalid Email Format'
-
+        validationEmail: 'Invalid Email Format',
+        validationLogin: 'Invalid username or password'
     },
     es: {
         fieldLabelUsername: 'Correo Electrónico',
@@ -20,7 +20,7 @@ export const strings = new LocalizedStrings({
         buttonLabelLogout: 'Salir',
 
         validationRequired: 'Campo Requerido',
-        validationEmail: 'Formato de correo electronico inválido'
-
+        validationEmail: 'Formato de correo electronico inválido',
+        validationLogin: 'Usuario o contraseña incorrecto'
     }
 });

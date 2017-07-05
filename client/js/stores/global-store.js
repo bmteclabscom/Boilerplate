@@ -24,13 +24,13 @@ export const defaultState = {
         isRequestingLogin: false, // true if is logging in
         isRequestingLogout: false, // true if is logging out
         isCheckingAuthentication: false, // true if is checking user authentication
-        loginError: false,
-        logoutError: false
+        loginError: null,
+        logoutError: null
     },
     todos: {
         list: [],
         isRequestingTodos: false,
-        todosRequestError: false
+        todosRequestError: null
     }
 };
 
