@@ -7,6 +7,9 @@ import mainCss from '../css/main.scss';
 import store, {history} from './stores/global-store';
 import Dashboard from './containers/dashboard';
 import Login from './containers/login';
+import * as userActionCreators from './actions/user-actions';
+
+store.dispatch(userActionCreators.checkAuthentication());
 
 render((
     <Provider store={store}>   

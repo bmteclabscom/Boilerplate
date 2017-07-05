@@ -16,11 +16,15 @@ export const defaultState = {
     user: {
         attributes: null,
         isUserLogged: false,
-        isRequestingLogin: false,
         loginFormData: {
             username: '',
             password: ''
-        }
+        },
+        isRequestingLogin: false, // true if is logging in
+        isRequestingLogout: false, // true if is logging out
+        isCheckingAuthentication: false, // true if is checking user authentication
+        loginError: false,
+        logoutError: false
     }
 };
 

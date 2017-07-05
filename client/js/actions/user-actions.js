@@ -2,8 +2,9 @@ import Services from '../utils/services';
 import {Actions} from '../utils/constants';
 
 /**
- * Authenticate user
- * 
+ * Login
+ * @param {string} username 
+ * @param {string} password 
  */
 export function login(username, password) {
     return function (dispatch) {
@@ -16,17 +17,35 @@ export function login(username, password) {
     }
 }
 
+/**
+ * Logout
+ */
 export function logout() {
     return function (dispatch) {
         dispatch(requestLogout());
-        return Services.login(username, password).then(user => {
-            dispatch(receiveLogout(user))
+        return Services.logout().then(user => {
+            dispatch(receiveLogout())
         }).catch(error => {
             dispatch(receiveLogoutError(error));
         });
     }
 }
 
+/**
+ * Verifies if user is logged
+ */
+export function checkAuthentication() {
+    return function(dispatch) {
+        dispatch(requestCheckAuthentication());
+        return Services.isAuthenticated()
+            .then(user => dispatch(receiveLogin(user)))
+            .catch(_ => dispatch(receiveLogout()))
+    }
+}
+
+/**
+ * Requesting and Error Actions
+ */
 export function requestLogin() {
     return {
         type: Actions.REQUESTING_LOGIN
@@ -36,6 +55,12 @@ export function requestLogin() {
 export function requestLogout() {
     return {
         type: Actions.REQUESTING_LOGOUT
+    }
+}
+
+export function requestCheckAuthentication() {
+    return {
+        type: Actions.REQUESTING_CHECK_AUTHENTICATION
     }
 }
 

@@ -49,9 +49,12 @@ LoginForm = connect(
 )(LoginForm)
 
 class Login extends Component {
-
-    componentDidMount() {
-        Services.isAuthenticated().then(res => this.goToDashboard());
+    
+    componentDidUpdate() {
+        const {user} = this.props;
+        if (user.isUserLogged) {
+            this.goToDashboard();
+        }
     }
 
     onSubmit(data) {

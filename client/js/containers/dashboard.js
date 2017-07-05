@@ -8,11 +8,14 @@ import Services from '../utils/services';
 const actionCreators = {...userActionCreators};
 
 class Dashboard extends Component {
-
-    componentDidMount() {
-        Services.isAuthenticated().then(res => console.log(res)).catch(_ => this.goToLogin());
-    }
     
+    componentDidUpdate() {
+        const {user} = this.props;
+        if (!user.isUserLogged) {
+            this.goToLogin();
+        }
+    }
+
     render() {
         const {logout} = this.props;
         return (
