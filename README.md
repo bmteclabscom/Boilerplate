@@ -16,7 +16,7 @@
 
 ##### Scripts
 Development and production scripts :
-- `npm run start:all`: Starts dev servers; client code server running in port `3001` and expressjs server in `3000`
+- `npm run start:dev`: Starts dev servers; client code server running in port `3001` and expressjs server in `3000`
 - `npm run start:prod"`: Starts production mode server; it runs on port 8080, and it first generates the bundled client files into `build` folder
 - `npm run build`: No server, this just bundles client files into `build` folder
     

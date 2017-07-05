@@ -9,7 +9,7 @@
   "scripts": {
     "start:client": "webpack-dev-server --port 3001 --host 0.0.0.0;",
     "start:server": "nodemon --watch server server/server",
-    "start:all": "npm-run-all --parallel start:client start:server",
+    "start:dev": "npm-run-all --parallel start:client start:server",
     "build": "rimraf build && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
     "start:prod": "npm run build && cross-env NODE_ENV=production PORT=8080 node server/server"
   },
