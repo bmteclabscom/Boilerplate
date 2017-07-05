@@ -39,7 +39,8 @@ export default {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
             body: `username=${username}&password=${password}`
-        });
+        }).then(handleResponse)
+            .catch(error => Promise.reject(error));
     },
 
     /**

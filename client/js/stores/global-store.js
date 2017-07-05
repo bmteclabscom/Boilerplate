@@ -14,7 +14,7 @@ import userReducer from '../reducers/user-reducer';
 // create an object with the default data
 export const defaultState = {
     user: {
-        attributes: null,
+        attributes: {},
         isUserLogged: false,
         loginFormData: {
             username: '',

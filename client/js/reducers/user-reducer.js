@@ -21,6 +21,7 @@ function user(state = {}, action) {
         case Actions.RECEIVE_LOGIN:
             return { 
                 ...state,
+                attributes: action.user,
                 isRequestingLogin: false,
                 isCheckingAuthentication: false,
                 isUserLogged: true
@@ -43,6 +44,7 @@ function user(state = {}, action) {
         case Actions.RECEIVE_LOGOUT:
             return { 
                 ...state,
+                attributes: {},
                 isUserLogged: false,
                 isRequestingLogout: false,
                 isCheckingAuthentication: false

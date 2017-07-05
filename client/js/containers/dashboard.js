@@ -17,9 +17,10 @@ class Dashboard extends Component {
     }
 
     render() {
-        const {logout} = this.props;
+        const {logout, user} = this.props;
         return (
             <div className="dashboard">
+                {user.attributes.username}
                 <h1>Dashboard</h1>
                 <button onClick={_ => logout()}>logout</button>
             </div>
