@@ -12,6 +12,10 @@ router.post('/login', passport.authenticate('local'), function (req, res) {
     res.send(req.user);
 });
 
+router.get('/check-login', Auth.routeAuthMiddleware, function (req, res) {  
+    res.send(req.user);
+});
+
 router.post('/logout', function(req, res){
     req.logOut();
     res.sendStatus(200);

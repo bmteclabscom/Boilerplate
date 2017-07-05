@@ -11,6 +11,7 @@
 - Server code changes watch, everytime backend code is changed, server is reloaded
 - Handlebars for ExpressJS views rendering
 - Babel for: JSX, latest ES, etc..
+- React, Redux, Redux Form, Validations
 - Styling with SCSS
 
 ##### Scripts
