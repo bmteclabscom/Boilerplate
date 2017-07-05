@@ -12,6 +12,7 @@
 - Handlebars for ExpressJS views rendering
 - Babel for: JSX, latest ES, etc..
 - React, Redux, Redux Form, Validations
+- Internationalization
 - Styling with SCSS
 
 ##### Scripts
