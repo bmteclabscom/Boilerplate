@@ -14,6 +14,7 @@
 - React, Redux, Redux Form, Validations
 - Internationalization
 - Styling with SCSS
+- UI uses Bootstrap 3, but can be easily changed to other stuff, own custom styling, Foundation, etc
 
 ##### Scripts
 Development and production scripts :
