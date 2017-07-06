@@ -1,0 +1,53 @@
+@import "variables";
+// ref: http://codepen.io/brunjo/pen/XJmbNz;
+
+.progress-indicator-bar {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    .progress-indicator-bar-animation {
+        height: 4px;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        background-color: #ddd;
+        opacity: 0;
+        transition: .6s opacity;
+        &:before {
+            display: block;
+            position: absolute;
+            content: "";
+            left: -200px;
+            width: 200px;
+            height: 4px;
+            background-color: $color-progress-bar;
+            animation: progress-indicator-bar-keyframes 2s linear infinite;
+        }
+    }
+    &.loading .progress-indicator-bar-animation {
+        opacity: 1;
+    }
+}
+
+@keyframes progress-indicator-bar-keyframes {
+    from {
+        left: -200px;
+        width: 30%;
+    }
+    50% {
+        width: 30%;
+    }
+    70% {
+        width: 70%;
+    }
+    80% {
+        left: 50%;
+    }
+    95% {
+        left: 120%;
+    }
+    to {
+        left: 100%;
+    }
+}

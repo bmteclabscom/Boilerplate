@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Navigation from '../components/navigation';
 import ErrorNotification from '../components/error-notification';
+import ProgressIndicator from '../components/progress-indicator';
 import {strings} from '../utils/strings';
 import Tools from '../utils/tools';
 import * as userActionCreators from '../actions/user-actions';
@@ -31,7 +32,7 @@ class Dashboard extends Component {
 
     render() {
         const {logout, user, todos, getTodos} = this.props;
-        const {todosRequestError} = todos;
+        const {todosRequestError, isRequestingTodos} = todos;
         return (
             <div className="dashboard">
                 <div className="container-fluid">
@@ -63,6 +64,7 @@ class Dashboard extends Component {
                         </div>
                     </div>
                 </div>
+                <ProgressIndicator show={isRequestingTodos}/>
                 <ErrorNotification show={!!todosRequestError} errorProvider={todosRequestError}/>
             </div>
         );
