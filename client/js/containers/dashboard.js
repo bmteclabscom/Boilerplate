@@ -65,6 +65,7 @@ class Dashboard extends Component {
                     </div>
                 </div>
                 <ProgressIndicator show={isRequestingTodos || user.isRequestingLogout}/>
+                <ProgressIndicator show={user.isCheckingAuthentication} title={strings.checkingAuthentication} type="circular"/>
                 <ErrorNotification show={!!todosRequestError} errorProvider={todosRequestError}/>
             </div>
         );

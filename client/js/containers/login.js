@@ -80,6 +80,7 @@ class Login extends Component {
                         </div>
                     </div>
                 </div>
+                <ProgressIndicator show={user.isCheckingAuthentication} title={strings.checkingAuthentication} type="circular"/>
                 <ProgressIndicator show={user.isRequestingLogin}/>
             </div>
         );

@@ -1,6 +1,8 @@
 @import "variables";
 // ref: http://codepen.io/brunjo/pen/XJmbNz;
 
+// Progress Indicator
+// Bar
 .progress-indicator-bar {
     left: 0;
     position: fixed;
@@ -49,5 +51,110 @@
     }
     to {
         left: 100%;
+    }
+}
+
+// Progress Indicator
+// Circular
+.progress-indicator-circular-modal {
+    background: #FFF;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+    &.loading {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.progress-indicator-circular-wrapper {
+    left: 50%;
+    position: fixed;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.progress-indicator-circular-modal-title {
+    margin-top: 10px;
+}
+
+.progress-indicator-circular {
+    position: relative;
+    width: 49px;
+    height: 49px;
+    margin: 25px auto 0;
+}
+
+.circularG {
+    position: absolute;
+    background-color: $color-progress-circular-dots;
+    width: 12px;
+    height: 12px;
+    border-radius: 7px;
+    animation-name: bounce_circularG;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+}
+
+.circularG_1 {
+    left: 0;
+    top: 20px;
+    animation-delay: 0.41s;
+}
+
+.circularG_2 {
+    left: 5px;
+    top: 5px;
+    animation-delay: 0.55s;
+}
+
+.circularG_3 {
+    top: 0;
+    left: 20px;
+    animation-delay: 0.69s;
+}
+
+.circularG_4 {
+    right: 5px;
+    top: 5px;
+    animation-delay: 0.83s;
+}
+
+.circularG_5 {
+    right: 0;
+    top: 20px;
+    animation-delay: 0.97s;
+}
+
+.circularG_6 {
+    right: 5px;
+    bottom: 5px;
+    animation-delay: 1.1s;
+}
+
+.circularG_7 {
+    left: 20px;
+    bottom: 0;
+    animation-delay: 1.24s;
+}
+
+.circularG_8 {
+    left: 5px;
+    bottom: 5px;
+    animation-delay: 1.38s;
+}
+
+@keyframes bounce_circularG {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(.3);
     }
 }

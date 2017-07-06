@@ -13,7 +13,9 @@ export const strings = new LocalizedStrings({
         validationLogin: 'Invalid username or password',
 
         errorMessage: 'There was a problem, please try again or refresh page',
-        errorAuthenticationFailed: 'There was a problem, authentication failed or expired'
+        errorAuthenticationFailed: 'There was a problem, authentication failed or expired',
+
+        checkingAuthentication: 'Verifying authentication...'
     },
     es: {
         fieldLabelUsername: 'Correo Electrónico',
@@ -27,6 +29,8 @@ export const strings = new LocalizedStrings({
         validationLogin: 'Usuario o contraseña incorrecto',
 
         errorMessage: 'Hubo un problema, por favor intente de nuevo o refresque la pagina',
-        errorAuthenticationFailed: 'Hubo un problema, sesión invalida o expirada'
+        errorAuthenticationFailed: 'Hubo un problema, sesión invalida o expirada',
+
+        checkingAuthentication: 'Verificando autenticación...'
     }
 });
