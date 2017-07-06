@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import Services from '../utils/services';
 import {strings} from '../utils/strings';
 import * as FormFields from '../components/form-fields';
+import ProgressIndicator from '../components/progress-indicator';
 import * as Validations from '../utils/form-validations';
 import * as userActionCreators from '../actions/user-actions';
 
@@ -66,17 +67,20 @@ class Login extends Component {
     render() {
         const {user} = this.props;
         return (
-            <div className="login login-centered">
-                <div className="container-fluid">
-                    <div className="row-fluid">
-                        <div className="col-md-12">
-                            <LoginForm onSubmit={this.onSubmit.bind(this)} requesting={user.isRequestingLogin}/>
-                            <div className="text-center">
-                                <span hidden={!user.loginError} className="form-group-error">{strings.validationLogin}</span>
+            <div className="login-wrapper">
+                <div className="login login-centered">
+                    <div className="container-fluid">
+                        <div className="row-fluid">
+                            <div className="col-md-12">
+                                <LoginForm onSubmit={this.onSubmit.bind(this)} requesting={user.isRequestingLogin}/>
+                                <div className="text-center">
+                                    <span hidden={!user.loginError} className="form-group-error">{strings.validationLogin}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <ProgressIndicator show={user.isRequestingLogin}/>
             </div>
         );
     }
