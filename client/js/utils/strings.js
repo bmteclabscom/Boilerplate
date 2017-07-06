@@ -3,7 +3,9 @@ import LocalizedStrings from 'react-localization';
 export const strings = new LocalizedStrings({
     en: {
         fieldLabelUsername: 'Email',
+        fieldPlaceholderUsername: 'Email...',
         fieldLabelPassword: 'Password',
+        fieldPlaceholderPassword: 'Password',
 
         buttonLabelLogin: 'Login',
         buttonLabelLogout: 'Logout',
@@ -19,7 +21,9 @@ export const strings = new LocalizedStrings({
     },
     es: {
         fieldLabelUsername: 'Correo Electrónico',
+        fieldPlaceholderUsername: 'Correo Electrónico...',
         fieldLabelPassword: 'Contraseña',
+        fieldPlaceholderPassword: 'Contraseña...',
 
         buttonLabelLogin: 'Ingresar',
         buttonLabelLogout: 'Salir',

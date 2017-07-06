@@ -1,5 +1,11 @@
 @import "variables";
 
+.form-group.required .control-label {
+    &:after {
+        content: ' *';
+    }
+}
+
 .form-group-error {
     color: $color-error;
     display: inline-block;

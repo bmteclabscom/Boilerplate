@@ -23,12 +23,12 @@ class LoginForm extends Component {
         return (
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Field name="username"
-                    placeholder=""
+                    placeholder={strings.fieldPlaceholderUsername}
                     component={FormFields.renderTextField}
                     className="required" 
                     label={strings.fieldLabelUsername} validate={[Validations.required]}/>
                 <Field name="password"
-                    placeholder=""
+                    placeholder={strings.fieldPlaceholderPassword}
                     component={FormFields.renderPasswordField}
                     className="required" 
                     label={strings.fieldLabelPassword} validate={[Validations.required]}/>
