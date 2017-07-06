@@ -52,7 +52,7 @@ class Dashboard extends Component {
                         </div>
                         <div className="col-md-9">
                             <div className="page-header">
-                                <h1>Welcome {user.attributes.username} <small><a href="#" onClick={_ => getTodos()}>Refresh</a></small></h1>
+                                <h1>Welcome {user.attributes.firstName} <small><a href="#" onClick={_ => getTodos()}>Refresh</a></small></h1>
                             </div>
                             <div className="list-group">
                                 {todos.list.map((todo, index) => 

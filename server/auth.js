@@ -13,7 +13,7 @@ module.exports = {
                     message: 'Incorrect username.'
                 });
             }
-            if (user.password !== password) {
+            if (!user.validPassword(password)) {
                 return done(null, false, {
                     message: 'Incorrect password.'
                 });

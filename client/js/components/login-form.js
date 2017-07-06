@@ -26,7 +26,7 @@ class LoginForm extends Component {
                     placeholder={strings.fieldPlaceholderUsername}
                     component={FormFields.renderTextField}
                     className="required" 
-                    label={strings.fieldLabelUsername} validate={[Validations.required]}/>
+                    label={strings.fieldLabelUsername} validate={[Validations.required, Validations.email]}/>
                 <Field name="password"
                     placeholder={strings.fieldPlaceholderPassword}
                     component={FormFields.renderPasswordField}

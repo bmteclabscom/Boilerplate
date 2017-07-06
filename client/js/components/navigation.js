@@ -14,7 +14,7 @@ class Navigation extends Component {
                         </a>
                     </div>
                     <div className="collapse navbar-collapse" id="navbar">
-                        <p className="navbar-text">{user.attributes.username}</p>
+                        <p className="navbar-text">{user.attributes.firstName} {user.attributes.lastName}</p>
                         <p className="navbar-text navbar-right">
                             <a href="#" onClick={_ => onLogout()} className="navbar-link">{strings.buttonLabelLogout}</a>
                         </p>
