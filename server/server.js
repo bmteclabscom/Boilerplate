@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser')
 const session = require('express-session');
 const express = require('express');
 const exphbs = require('express-handlebars');
+const delay = require('express-delay');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
@@ -42,6 +43,7 @@ if (!isDeveloping) {
     Logger.info('initializing server in production mode');
     app.use('/build', express.static('build')); // on production mode, serve the generated build folder
 } else {
+    app.use(delay(600));
     Logger.info('initializing server in development mode');
 }
 
