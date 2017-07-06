@@ -1,4 +1,11 @@
-
+// Notifications can appear fixed abover or below the screen
+// Helpful to display error or messages 
+//
+// <div class="notification notification-bottom notification-visible">
+//     <div class="notification-alert alert alert-danger" role="alert">
+//         There was a problem, please try again or refresh page
+//     </div>
+// </div>
 .notification {
     left: 0;
     opacity: 0;
