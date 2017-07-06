@@ -3,7 +3,9 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Navigation from '../components/navigation';
+import ErrorNotification from '../components/error-notification';
 import {strings} from '../utils/strings';
+import Tools from '../utils/tools';
 import * as userActionCreators from '../actions/user-actions';
 import * as todosActionCreators from '../actions/todos-actions';
 import Services from '../utils/services';
@@ -13,7 +15,7 @@ const actionCreators = {...userActionCreators, ...todosActionCreators};
 class Dashboard extends Component {
 
     componentDidMount() {
-        this.doIfLogged(_ => this.props.getTodos());
+        Tools.doIfLogged(_ => this.props.getTodos(), this.props.user);
     }
 
     componentDidUpdate() {
@@ -24,25 +26,12 @@ class Dashboard extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.doIfLogged(_ => this.props.getTodos(), nextProps);
-    }
-
-    doIfLogged(callback, nextProps = null) {
-        const {user} = this.props;
-        if (!nextProps && user.isUserLogged) {
-            return callback();
-        }
-        if (!nextProps) {
-            return;
-        }
-        const nextUserState = nextProps.user;
-        if (nextUserState.isUserLogged && nextUserState.isUserLogged !== user.isUserLogged) {
-            return callback();
-        }
+        Tools.doIfLogged(_ => this.props.getTodos(), this.props.user, nextProps.user);
     }
 
     render() {
         const {logout, user, todos, getTodos} = this.props;
+        const {todosRequestError} = todos;
         return (
             <div className="dashboard">
                 <div className="container-fluid">
@@ -74,6 +63,7 @@ class Dashboard extends Component {
                         </div>
                     </div>
                 </div>
+                <ErrorNotification show={!!todosRequestError} errorProvider={todosRequestError}/>
             </div>
         );
     }

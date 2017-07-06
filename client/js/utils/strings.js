@@ -10,7 +10,10 @@ export const strings = new LocalizedStrings({
 
         validationRequired: 'Required',
         validationEmail: 'Invalid Email Format',
-        validationLogin: 'Invalid username or password'
+        validationLogin: 'Invalid username or password',
+
+        errorMessage: 'There was a problem, please try again or refresh page',
+        errorAuthenticationFailed: 'There was a problem, authentication failed or expired'
     },
     es: {
         fieldLabelUsername: 'Correo Electrónico',
@@ -21,6 +24,9 @@ export const strings = new LocalizedStrings({
 
         validationRequired: 'Campo Requerido',
         validationEmail: 'Formato de correo electronico inválido',
-        validationLogin: 'Usuario o contraseña incorrecto'
+        validationLogin: 'Usuario o contraseña incorrecto',
+
+        errorMessage: 'Hubo un problema, por favor intente de nuevo o refresque la pagina',
+        errorAuthenticationFailed: 'Hubo un problema, sesión invalida o expirada'
     }
 });

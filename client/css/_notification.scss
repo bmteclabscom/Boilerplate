@@ -1,0 +1,29 @@
+
+.notification {
+    left: 0;
+    opacity: 0;
+    padding: 10px;
+    position: fixed;
+    text-align: center;
+    transition: .6s transform, 1s opacity;
+    &.notification-bottom {
+        bottom: 0;
+        transform: translateY(100%);
+    }
+    &.notification-top {
+        top: 0;
+        transform: translateY(-100%);
+    }
+    &,
+    .notification-alert {
+        width: 100%;
+    }
+    .notification-alert {
+        margin: 0 auto;
+        max-width: 450px;
+    }
+    &.notification-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -27,7 +27,6 @@ function todos(state = {}, action) {
         case Actions.RECEIVE_TODOS_ERROR:
             return { 
                 ...state,
-                list: action.todos.list,
                 isRequestingTodos: false,
                 todosRequestError: action.error
             };
