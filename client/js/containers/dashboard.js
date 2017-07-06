@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import Navigation from '../components/navigation';
 import ErrorNotification from '../components/error-notification';
 import ProgressIndicator from '../components/progress-indicator';
