@@ -37,14 +37,7 @@ class ProgressIndicator extends Component {
             <div className={`progress-indicator-circular-modal ${showCss}`}>
                 <div className="progress-indicator-circular-wrapper">
                     <div className="progress-indicator-circular loading">
-                        <div className="circularG_1 circularG"></div>
-                        <div className="circularG_2 circularG"></div>
-                        <div className="circularG_3 circularG"></div>
-                        <div className="circularG_4 circularG"></div>
-                        <div className="circularG_5 circularG"></div>
-                        <div className="circularG_6 circularG"></div>
-                        <div className="circularG_7 circularG"></div>
-                        <div className="circularG_8 circularG"></div>
+                        <div className="spinner"></div>
                     </div>
                     <div className="progress-indicator-circular-modal-title">
                         {title}

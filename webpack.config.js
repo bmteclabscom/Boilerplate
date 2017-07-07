@@ -62,7 +62,7 @@ module.exports = {
             test: /\.svg/,
             loader: 'svg-url-loader',
             include: [
-                path.resolve(__dirname, 'src/images')
+                path.resolve(__dirname, 'client/images')
             ],
             options: {}
         }, {
