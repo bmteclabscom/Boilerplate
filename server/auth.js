@@ -1,5 +1,6 @@
 const UserService = require('./services/user');
 const Logger = require('./utils/logger.js');
+const Constants = require('./utils/constants.js');
 
 module.exports = {
 
@@ -28,7 +29,7 @@ module.exports = {
      */
     routeAuthMiddleware: function (req, res, next) {
         if (!req.isAuthenticated()) {
-            res.sendStatus(401);
+            res.status(401).json({ error: Constants.HTTP_401_MESSAGE });
         } else {
             next();
         }
@@ -40,7 +41,7 @@ module.exports = {
     routeAuthMiddlewareWithLog: function (req, res, next) {
         if (!req.isAuthenticated()) {
             Logger.error(`unauthenticated request to ${req.originalUrl}`);
-            res.sendStatus(401);
+            res.status(401).json({ error: Constants.HTTP_401_MESSAGE });
         } else {
             next();
         }
