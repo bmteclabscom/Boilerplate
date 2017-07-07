@@ -48,6 +48,7 @@ class Dashboard extends Component {
                                 <li className="active"><a href="#">Home</a></li>
                                 <li><a href="#">Categories</a></li>
                                 <li><a href="#">Profile</a></li>
+                                <li><a href="#" onClick={_ => logout()}>{strings.buttonLabelLogout}</a></li>
                             </ul>
                         </div>
                         <div className="col-md-9">
