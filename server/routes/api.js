@@ -12,15 +12,15 @@ router.get('/todos/list', Auth.routeAuthMiddlewareWithLog, function(req, res) {
     })
 });
 
-router.post('/user/login', passport.authenticate('local'), function (req, res) {  
+router.post('/users/login', passport.authenticate('local'), function (req, res) {  
     res.send(req.user);
 });
 
-router.get('/user/check-login', Auth.routeAuthMiddleware, function (req, res) {  
+router.get('/users/check-login', Auth.routeAuthMiddleware, function (req, res) {  
     res.send(req.user);
 });
 
-router.post('/user/logout', function(req, res) {
+router.post('/users/logout', function(req, res) {
     Logger.info(`${req.user.username} is logging out`);
     req.logOut();
     res.sendStatus(200);

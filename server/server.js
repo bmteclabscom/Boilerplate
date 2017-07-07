@@ -43,12 +43,12 @@ if (!isDeveloping) {
     Logger.info('initializing server in production mode');
     app.use('/build', express.static('build')); // on production mode, serve the generated build folder
 } else {
-    app.use(delay(600));
+    app.use(delay(1000));
     Logger.info('initializing server in development mode');
 }
 
 app.use('/', IndexRouter);
-app.use('/api', ApiRouter);
+app.use('/api/v1', ApiRouter);
 
 
 app.listen(port, '0.0.0.0', function (err) {
