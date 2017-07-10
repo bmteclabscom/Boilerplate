@@ -1,5 +1,6 @@
 import 'whatwg-fetch';
 import Promise from 'promise-polyfill';
+import queryString from 'query-string';
 
 if (!window.Promise) {
     window.Promise = Promise;
@@ -38,7 +39,7 @@ export default {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: `username=${username}&password=${password}`
+            body: queryString.stringify({username, password})
         }).then(handleResponse)
             .catch(error => Promise.reject(error));
     },
