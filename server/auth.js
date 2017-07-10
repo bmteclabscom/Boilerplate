@@ -8,7 +8,7 @@ module.exports = {
      * Callback for passport js 
      */
     onPassportLocalStrategy: function (username, password, done) {
-        UserService.findUser(username, function (user) {
+        UserService.findUserByUsername(username, function (user) {
             if (!user) {
                 return done(null, false, {
                     message: 'Incorrect username.'
@@ -51,13 +51,13 @@ module.exports = {
      * User serialization for passportjs
      */
     serializeUser: function (user, done) {
-        done(null, user);
+        done(null, user.id);
     },
 
     /**
      * User deserialization for passportjs
      */
-    deserializeUser: function (user, done) {
-        done(null, user);
+    deserializeUser: function (userId, done) {
+        UserService.findUserById(userId, user => done(null, user));
     }
 }

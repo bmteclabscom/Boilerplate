@@ -7,9 +7,7 @@ const Auth = require('../auth.js');
 const TodosService = require('../services/todos.js');
 
 router.get('/todos/list', Auth.routeAuthMiddlewareWithLog, function(req, res) {
-    TodosService.getTodos(function(todos) {
-        res.send({list: todos});
-    })
+    TodosService.getTodos(todos => res.send({list: todos}));
 });
 
 router.post('/users/login', passport.authenticate('local'), function (req, res) {  
