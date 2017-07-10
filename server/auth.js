@@ -51,13 +51,13 @@ module.exports = {
      * User serialization for passportjs
      */
     serializeUser: function (user, done) {
-        done(null, user.id);
+        done(null, user.id); // stores only user id in memory session
     },
 
     /**
      * User deserialization for passportjs
      */
     deserializeUser: function (userId, done) {
-        UserService.findUserById(userId, user => done(null, user));
+        UserService.findUserById(userId, user => done(null, user)); // retrieves user from storage
     }
 }
