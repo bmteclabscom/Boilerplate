@@ -6,7 +6,7 @@ const Logger = require('../utils/logger.js');
 const Auth = require('../auth.js');
 const TodosService = require('../services/todos.js');
 
-router.get('/todos/list', Auth.routeAuthMiddlewareWithLog, function(req, res) {
+router.get('/todos/list', Auth.routeAuthMiddleware, function(req, res) {
     TodosService.getTodos(todos => res.send({list: todos}));
 });
 

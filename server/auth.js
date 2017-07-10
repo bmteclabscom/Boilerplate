@@ -29,17 +29,6 @@ module.exports = {
      */
     routeAuthMiddleware: function (req, res, next) {
         if (!req.isAuthenticated()) {
-            res.status(401).json({ error: Constants.HTTP_401_MESSAGE });
-        } else {
-            next();
-        }
-    },
-
-    /**
-     * Route Middleware that can be applied to any route that requires user authentication
-     */
-    routeAuthMiddlewareWithLog: function (req, res, next) {
-        if (!req.isAuthenticated()) {
             Logger.error(`unauthenticated request to ${req.originalUrl}`);
             res.status(401).json({ error: Constants.HTTP_401_MESSAGE });
         } else {
