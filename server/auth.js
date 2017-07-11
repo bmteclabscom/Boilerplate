@@ -35,7 +35,7 @@ module.exports = {
                     next();
                 } else {
                     Logger.error(`unauthenticated request to ${req.originalUrl}`)
-                    res.status(401).json({ error: Constants.HTTP_401_MESSAGE });
+                    res.status(401).json(Constants.JSON_HTTP_401);
                 }
             })(req, res, next);
         } else { // has session authentication
