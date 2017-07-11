@@ -1,3 +1,4 @@
+const passport = require('passport');
 const UserService = require('./services/user');
 const Logger = require('./utils/logger.js');
 const Constants = require('./utils/constants.js');
@@ -7,7 +8,7 @@ module.exports = {
     /**
      * Callback for passport js 
      */
-    onPassportLocalStrategy: function (username, password, done) {
+    onPassportLocalOrBasicStrategy: function (username, password, done) {
         UserService.findUserByUsername(username, function (user) {
             if (!user) {
                 return done(null, false, {
@@ -28,10 +29,16 @@ module.exports = {
      * Route Middleware that can be applied to any route that requires user authentication
      */
     routeAuthMiddleware: function (req, res, next) {
-        if (!req.isAuthenticated()) {
-            Logger.error(`unauthenticated request to ${req.originalUrl}`);
-            res.status(401).json({ error: Constants.HTTP_401_MESSAGE });
-        } else {
+        if (!req.isAuthenticated()) { // check session authentication first
+            passport.authenticate('basic', function(err, user, info) { // check basic authentication
+                if (user) { // has basic authentication
+                    next();
+                } else {
+                    Logger.error(`unauthenticated request to ${req.originalUrl}`)
+                    res.status(401).json({ error: Constants.HTTP_401_MESSAGE });
+                }
+            })(req, res, next);
+        } else { // has session authentication
             next();
         }
     },

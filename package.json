@@ -24,6 +24,7 @@
     "hbs": "^4.0.1",
     "history": "^4.6.3",
     "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
     "passport-local": "^1.0.0",
     "promise-polyfill": "^6.0.2",
     "query-string": "^4.3.4",

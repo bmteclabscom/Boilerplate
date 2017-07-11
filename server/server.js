@@ -7,7 +7,7 @@ const exphbs = require('express-handlebars');
 const delay = require('express-delay');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-
+const BasicStrategy = require('passport-http').BasicStrategy;
 const IndexRouter = require('./routes/index.js');
 const ApiRouter = require('./routes/api.js');
 const Auth = require('./auth.js');
@@ -33,7 +33,8 @@ app.set('view engine', 'handlebars');
 app.use(cookieParser());
 app.use(session({name: 'asg.sid', secret: 'asg1234', resave: false, saveUninitialized: false, cookie: {}}));
 app.use(bodyParser.urlencoded({extended: false}));
-passport.use(new LocalStrategy(Auth.onPassportLocalStrategy));
+passport.use(new LocalStrategy(Auth.onPassportLocalOrBasicStrategy));
+passport.use(new BasicStrategy(Auth.onPassportLocalOrBasicStrategy));
 passport.serializeUser(Auth.serializeUser);
 passport.deserializeUser(Auth.deserializeUser);
 app.use(passport.initialize());
