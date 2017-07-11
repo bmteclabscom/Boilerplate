@@ -1,14 +1,7 @@
 @import "variables";
 
-.form-group.required .control-label {
+.form-group.required .form-control-label {
     &:after {
         content: ' *';
     }
-}
-
-.form-group-error {
-    color: $color-error;
-    display: inline-block;
-    font-size: 12px;
-    margin-top: 5px;
 }
