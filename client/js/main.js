@@ -2,6 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import { BrowserRouter as Router, Route, IndexRedirect, browserHistory, Redirect, Switch } from 'react-router-dom';
 import {Provider} from 'react-redux';
+import Collapse from 'bootstrap/js/src/collapse';
 
 import mainCss from '../css/main.scss';
 import store, {history} from './stores/global-store';

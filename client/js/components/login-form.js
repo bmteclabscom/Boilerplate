@@ -33,7 +33,7 @@ class LoginForm extends Component {
                     className="required" 
                     label={strings.fieldLabelPassword} validate={[Validations.required]}/>
                 <div className="text-center">
-                    <button disabled={requesting} type="submit" className="btn btn-primary">{strings.buttonLabelLogin}</button>
+                    <button disabled={requesting} type="submit" className="btn btn-outline-primary">{strings.buttonLabelLogin}</button>
                 </div>
             </form>
         );

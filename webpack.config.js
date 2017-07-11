@@ -8,6 +8,11 @@ const EXCLUDES = [/node_modules/];
 
 var plugins = [
     mainStylesExtract,
+    new webpack.ProvidePlugin({ // inject ES5 modules as global vars
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery'
+    }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin()
 ];

@@ -36,33 +36,29 @@ class Dashboard extends Component {
         const {todosRequestError, isRequestingTodos} = todos;
         return (
             <div className="dashboard">
+                <Navigation user={user} onLogout={_ => logout()}/>
                 <div className="container-fluid">
-                    <div className="row-fluid">
-                        <div className="col-md-12">
-                            <Navigation user={user} onLogout={_ => logout()}/>
-                        </div>
-                    </div>
-                    <div className="row-fluid">
-                        <div className="col-md-3">
-                            <ul className="nav nav-pills nav-stacked">
-                                <li className="active"><a href="#">Home</a></li>
-                                <li><a href="#">Categories</a></li>
-                                <li><a href="#">Profile</a></li>
-                                <li><a href="#" onClick={_ => logout()}>{strings.buttonLabelLogout}</a></li>
+                    <div className="row">
+                        <div className="col-md-3 hidden-sm-down">
+                            <ul className="nav flex-column">
+                                <li className="nav-item"><a className="nav-link" href="#">Home</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#">Categories</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#">Profile</a></li>
+                                <li className="nav-item"><a className="nav-link" href="#" onClick={_ => logout()}>{strings.buttonLabelLogout}</a></li>
                             </ul>
                         </div>
                         <div className="col-md-9">
                             <div className="page-header">
                                 <h1>Welcome {user.attributes.firstName} <small><a href="#" onClick={_ => getTodos()}>Refresh</a></small></h1>
                             </div>
-                            <div className="list-group">
+                            <ul className="list-group">
                                 {todos.list.map((todo, index) => 
-                                    <a key={index} href="#" className="list-group-item">
+                                    <li key={index} className="list-group-item">
                                         <h4 className="list-group-item-heading">{todo.title}</h4>
                                         <p className="list-group-item-text">{todo.description}</p>
-                                    </a>
+                                    </li>
                                 )}
-                            </div>
+                            </ul>
                         </div>
                     </div>
                 </div>
