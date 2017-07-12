@@ -33,6 +33,7 @@ app.set('view engine', 'handlebars');
 app.use(cookieParser());
 app.use(session({name: 'asg.sid', secret: 'asg1234', resave: false, saveUninitialized: false, cookie: {}}));
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 passport.use(new LocalStrategy(Auth.onPassportLocalOrBasicStrategy));
 passport.use(new BasicStrategy(Auth.onPassportLocalOrBasicStrategy));
 passport.serializeUser(Auth.serializeUser);
