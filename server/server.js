@@ -56,12 +56,18 @@ if (!isDeveloping) {
 }
 
 app.use('/', IndexRouter);
-app.use('/api/v1', ApiRouter);
+app.use('/api/v1', [ApiRouter, function errorMiddleware(error, req, res, next) {
+    if (error) {
+        Logger.error(error.stack);
+        return res.status(500).json({error: 'There was a problem in the API'});
+    }
+    return next();
+}]);
 
 
-app.listen(port, '0.0.0.0', function (err) {
-    if (err) {
-        console.log(err);
+app.listen(port, '0.0.0.0', function (error) {
+    if (error) {
+        Logger.error(error);
     }
     console.info('==> Listening on port %s. Open up http://0.0.0.0:%s/ in your browser.', port, port);
 });

@@ -8,8 +8,8 @@
   "author": "alejandro soto",
   "scripts": {
     "start:client": "webpack-dev-server --port 3001 --host 0.0.0.0;",
-    "start:server": "nodemon --watch server --watch shared server/server",
-    "start:server-debug": "nodemon --debug --watch server --watch shared server/server",
+    "start:server": "nodemon --watch server --watch shared --watch system-config server/server",
+    "start:server-debug": "nodemon --debug --watch server --watch shared --watch system-config server/server",
     "start:dev-debug": "npm-run-all --parallel start:client start:server-debug",
     "start:dev": "npm-run-all --parallel start:client start:server",
     "build": "rimraf build && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",

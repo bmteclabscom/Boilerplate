@@ -4,6 +4,7 @@ const user = { // TODO: remove this, just for sample
     firstName: 'John',
     lastName: 'Doe',
     username: 'admin@domain.com',
+    roles: ['admin'],
     validPassword: function(password) {
         return password === 'admin';
     }

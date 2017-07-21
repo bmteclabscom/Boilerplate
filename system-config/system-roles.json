@@ -1,0 +1,39 @@
+[
+    {
+        "name": "superadmin",
+        "permissions": "*"
+    },
+    {
+        "name": "admin",
+        "permissions": [
+            {
+                "resource": "todo",
+                "actions": ["read"]
+            },
+            {
+                "resource": "book",
+                "actions": ["read"]
+            },
+            {
+                "resource": "user",
+                "actions": ["read", "write"]
+            }
+        ]
+    },
+    {
+        "name": "callcenter-user",
+        "permissions": [{
+                "resource": "request",
+                "actions": ["read", "write"]
+            },
+            {
+                "resource": "user",
+                "actions": ["read"]
+            }
+        ]
+    },
+    {
+        "name": "user",
+        "permissions": []
+    }
+]
