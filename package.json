@@ -8,7 +8,9 @@
   "author": "alejandro soto",
   "scripts": {
     "start:client": "webpack-dev-server --port 3001 --host 0.0.0.0;",
-    "start:server": "nodemon --watch server server/server",
+    "start:server": "nodemon --watch server --watch shared server/server",
+    "start:server-debug": "nodemon --debug --watch server --watch shared server/server",
+    "start:dev-debug": "npm-run-all --parallel start:client start:server-debug",
     "start:dev": "npm-run-all --parallel start:client start:server",
     "build": "rimraf build && cross-env NODE_ENV=production webpack --config ./webpack.production.config.js --progress --profile --colors",
     "start:prod": "npm run build && cross-env NODE_ENV=production PORT=8080 node server/server"
@@ -58,6 +60,7 @@
     "postcss-loader": "^2.0.6",
     "rimraf": "^2.6.1",
     "sass-loader": "^6.0.6",
+    "session-file-store": "^1.0.0",
     "strip-loader": "^0.1.2",
     "style-loader": "^0.18.2",
     "svg-url-loader": "^2.1.1",

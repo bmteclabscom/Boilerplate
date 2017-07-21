@@ -2,6 +2,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
 const session = require('express-session');
+const SessionFileStore = require('session-file-store')(session);
 const express = require('express');
 const exphbs = require('express-handlebars');
 const delay = require('express-delay');
@@ -30,8 +31,13 @@ app.engine('handlebars', hbs.engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'handlebars');
 
+if (!isDeveloping) { // use memory session on prod
+    app.use(session({name: 'asg.sid', secret: 'asg1234', resave: false, saveUninitialized: false, cookie: {}}));
+} else { // use file session on dev so if server is reloaded with changes session is not lost
+    app.use(session({store: new SessionFileStore, secret: 'asg1234', resave: true, saveUninitialized: true}));
+}
+
 app.use(cookieParser());
-app.use(session({name: 'asg.sid', secret: 'asg1234', resave: false, saveUninitialized: false, cookie: {}}));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 passport.use(new LocalStrategy(Auth.onPassportLocalOrBasicStrategy));
@@ -45,7 +51,7 @@ if (!isDeveloping) {
     Logger.info('initializing server in production mode');
     app.use('/build', express.static('build')); // on production mode, serve the generated build folder
 } else {
-    app.use(delay(1000));
+    app.use(delay(600));
     Logger.info('initializing server in development mode');
 }
 
